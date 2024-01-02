@@ -1,0 +1,143 @@
+:root {
+    /** Colors **/
+    --blackish-blue: hsl(230, 35%, 7%);
+    --light-blue: hsl(231, 77%, 90%);
+    --white: hsl(0, 0%, 100%);
+    /** Typography **/
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--blackish-blue);
+    color: var(--white);
+    font-family: Barlow;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 177.778% */ 
+}
+
+nav {
+    background-color: hsla(var(--white), 0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & img {
+        scale: 0.8;
+        margin: 2rem;
+    }
+
+    & .navbar {
+        display: flex;
+        gap: 14px;
+    }
+
+    & li {
+        list-style: none;
+    }
+
+    & a {
+        text-decoration: none;
+        color: var(--white);
+    }
+
+    & span {
+        font-weight: bold;
+    }
+}
+
+
+/****** Utility Classes ******/
+.Heading1 {
+    font-family: "Bellefair";
+    font-size: 150px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.Heading2 {
+    font-family: "Bellefair";
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.Heading3 {
+    font-family: "Bellefair";
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase; 
+}
+
+.Heading4 {
+    font-family: "Bellefair";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase; 
+}
+
+.Heading5 {
+    color: var(--light-blue);
+    font-family: "Barlow Condensed";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 4.725px; 
+}
+
+.Subheading1 {
+    font-family: "Bellefair";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase; 
+}
+
+.Subheading2 {
+    font-family: "Barlow Condensed";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.362px;
+    text-transform: uppercase; 
+}
+
+.NavText {
+    font-family:" Barlow Condensed";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.7px; 
+}
+@font-face {
+    font-family: "Bellefair";
+    src: url(Resources/Bellefair-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url(Resources/Barlow-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Barlow Condensed";
+    src: url(Resources/BarlowCondensed-Regular.ttf);
+}
