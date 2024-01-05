@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="darkreader-lock" property="darkreader-lock">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="destination-body">
+    <header>
+        <img src="../Resources/logo.svg" alt="Navbar Logo" width="48" height="48">
+        <button type="button" class="mobile-nav-toggle" aria-controls="navbar" aria-expanded="false" onclick="toggleNav()"><span class="sr-only">Menu</span></button>
+        <nav>
+          <ul class="navbar NavText" id="navbar" data-visible="false">
+            <li class="">
+              <a class="" href="../index.html"><span aria-hidden="true">00</span>Home</a>
+            </li>
+            <li class="active">
+              <a class="" href="destination.html"><span aria-hidden="true">01</span>Destination</a>
+            </li>
+            <li class="">
+              <a class="" href="../Crew/crew.html"><span aria-hidden="true">02</span>Crew</a>
+            </li>
+            <li class="">
+              <a class="" href="../Technology/technology.html"><span aria-hidden="true">03</span>Technology</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main class="grid-standard flow">
+        <h1 class="destination-heading Heading5 cap"><span aria-hidden="true">01</span> Pick your destination
+        </h1>
+
+        <img src="images/image-moon.webp" alt="The Moon">
+
+        <div class="destination-tabs">
+          <button type="button" aria-selected="true" class="NavText">Moon</button>
+          <button type="button" aria-selected="false" class="NavText">Mars</button>
+          <button type="button" aria-selected="false" class="NavText">Europa</button>
+          <button type="button" aria-selected="false" class="NavText">Titan</button>
+        </div>
+        <div class="destination-content">
+          <h2 class="Heading2 cap">Moon</h2>
+          <p class="BodyText">
+            See our planet as you've never seen it before. A perfect relaxing trip away to help
+            regain perspective and come back refreshed. While you're there, take in some history
+            by visiting the Luna 2 and Apollo 11 landing sites.
+          </p>
+          <div class="flex destination-sub-content">
+            <div>
+              <h3 class="cap Subheading2 color-blue">Avg. distance</h3>
+              <p class="cap Subheading1">384,400 km</p>
+            </div>
+            <div>
+              <h3 class="cap Subheading2  color-blue">Est. travel time</h3>
+              <p class="cap Subheading1">3 days</p>
+              
+            </div>
+          </div>
+        </div>
+      </main>
+    <script src="../navbar.js"></script>
+</body>
+</html>
