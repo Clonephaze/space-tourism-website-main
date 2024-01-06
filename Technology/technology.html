@@ -29,9 +29,33 @@
         </nav>
       </header>
       <main class="grid-standard flow">
+        <h1 class="technology-heading Heading5 cap"><span aria-hidden="true">03</span> Space launch 101</h1>
 
-        
+        <picture id="tech-img" class="technology-img">
+          <source id="tech-img-land" media="(max-width: 61em)" srcset="images/image-launch-vehicle-landscape.jpg">
+          <img id="tech-img-port" src="images/image-launch-vehicle-portrait.jpg" alt="A rocket launching, clouds of smoke billowing from the launch pad">
+        </picture>
+
+        <div class="tech-nav">
+          <button class="Heading4" id="1" type="button" aria-selected="true" onclick="changeTechInfo();">1</button>
+          <button class="Heading4" id="2" type="button" aria-selected="false" onclick="changeTechInfo();">2</button>
+          <button class="Heading4" id="3" type="button" aria-selected="false" onclick="changeTechInfo();">3</button>
+        </div>
+      
+        <div class="tech-title">
+          <h2 class="NavText color-blue">The terminology...</h2>
+          <h3 class="Heading3" id="tech-title">Launch vehicle</h3>
+        </div>
+      
+        <p class="tech-info BodyText" id="tech-article">
+          A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a
+          payload from Earth's surface to space, usually to Earth orbit or beyond. Our
+          WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall,
+          it's quite an awe-inspiring sight on the launch pad!
+        </p>
+        <div class=""></div>
       </main>
     <script src="../navbar.js"></script>
+    <script src="TechChange.js"></script>
 </body>
 </html>

@@ -561,11 +561,14 @@ nav {
 
 /****** Technology Page CSS ******/
 .technology-body {
+    --content-padding: 2rem;
+
     background-image: url(Technology/images/background-technology-desktop.jpg);
     background-color: var(--blackish-blue);
 
     & .grid-standard {
         --flow-space: 1rem;
+        padding-inline: 0;
     }
 
     @media (max-width: 35em) {
@@ -575,8 +578,150 @@ nav {
     @media (min-width: 35em) and (max-width: 61em) {
         background-image: url(Technology/images/background-technology-tablet.jpg);
     }
+
+    @media (max-width: 35em) {
+        background-image: url(Crew/images/background-crew-mobile.jpg);
+
+        & .grid-standard {
+            grid-template-areas: 
+                'title'
+                'image'
+                'tech-nav'
+                'tech-title'
+                'content';
+        }
+    }
+
+    @media (min-width: 35em) and (max-width: 61em) {
+        background-image: url(Crew/images/background-crew-tablet.jpg);
+
+        & .grid-standard {
+            grid-template-areas: 
+                'title'
+                'image'
+                'tech-nav'
+                'tech-title'
+                'content';
+        }
+    }
+
+    @media (min-width: 61em) {
+        & .grid-standard {
+            grid-template-areas: 
+                '. title . . .'
+                '. tech-nav tech-title image image'
+                '. tech-nav content image image';
+        }
+    }
 }
 
+.technology-heading {
+    padding-inline: var(--content-padding);
+    grid-area: title;
+    justify-self: start;
+
+    & span {
+        opacity: 0.25;
+        font-weight: 700;
+        margin-right: 1rem;
+    }
+
+    @media (max-width: 35em) {
+        justify-self: center;
+    }
+}
+
+.technology-img {
+    grid-area: image;
+    min-width: 100vw;
+
+    place-items: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: end;
+    
+    & img {
+        object-fit: fill;   
+    }
+
+    @media (min-width: 61em) {
+        justify-self: right;
+        min-width: min(527px, 35vw);
+
+        & img {
+            width: 100%;
+        }
+    }
+}
+
+.tech-nav {
+    grid-area: tech-nav;
+    display: flex;
+    gap: 2rem;
+
+
+    & button {
+        border-radius: 50%;
+        aspect-ratio: 1;
+        width: 2.5em;
+        background-color: transparent;
+        border: 1px solid hsl(var(--white)/ 0.25);
+        color: hsl(var(--white));
+        transition: border-color 175ms ease-in-out, background-color 175ms ease-in-out;
+        cursor: pointer;
+
+
+        &[aria-selected="true"] {
+            background-color: hsl(var(--white));
+            color: hsl(var(--blackish-blue));
+        }
+
+        &[aria-selected="false"]:hover {
+            border-color: hsl(var(--white));
+        }
+    }
+
+    @media (min-width: 61em) {
+        flex-direction: column;
+        justify-self: start;;
+    }
+}
+
+.tech-title {
+    grid-area: tech-title;
+
+    @media (min-width: 61em) {
+        grid-area: tech-title / tech-nav / tech-title / tech-title;
+        justify-self: start;
+        align-self: end;
+        margin: 0 8rem;
+        min-width: max-content;
+        text-align: start;
+    }
+
+    & h2, h3 {
+        text-transform: uppercase;
+    }
+
+    & h2 {
+        letter-spacing: 0.15rem;
+    }
+}
+
+.tech-info {
+    min-width: min(50ch, 20vw);
+    grid-area: content;
+
+    @media (min-width: 61em) {
+        justify-self: start;
+        align-self: start;
+        text-wrap: balance;
+        text-align: left;
+        margin: 0 8rem;
+        grid-area: content / tech-nav / content / content;
+    }
+
+}
 /****** Utility Classes ******/
 .Heading1 {
     font-family: "Bellefair";
