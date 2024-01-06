@@ -13,16 +13,16 @@
         <button type="button" class="mobile-nav-toggle" aria-controls="navbar" aria-expanded="false" onclick="toggleNav()"><span class="sr-only">Menu</span></button>
         <nav>
           <ul class="navbar NavText" id="navbar" data-visible="false">
-            <li class="">
+            <li aria-selected="false" class="">
               <a class="" href="../index.html"><span aria-hidden="true">00</span>Home</a>
             </li>
-            <li class="">
+            <li aria-selected="false" class="">
               <a class="" href="../Destination/destination.html"><span aria-hidden="true">01</span>Destination</a>
             </li>
-            <li class="active">
+            <li aria-selected="true" class="active">
               <a class="" href="crew.html"><span aria-hidden="true">02</span>Crew</a>
             </li>
-            <li class="">
+            <li aria-selected="false" class="">
               <a class="" href="../Technology/technology.html"><span aria-hidden="true">03</span>Technology</a>
             </li>
           </ul>
@@ -32,7 +32,9 @@
 
         <h1 class="crew-heading Heading5 cap"><span aria-hidden="true">02</span>Meet your crew</h1>
         
-        <div class="crew-image"><img id="crew-image" src="images/image-douglas-hurley.webp" alt="Douglas Hurley Smiling with fist pumped in the air"></div>
+        <div class="crew-image">
+          <img id="crew-image" srcset="images/image-douglas-hurley.webp" src="images/image-douglas-hurley.png" alt="Douglas Hurley Smiling with fist pumped in the air">
+        </div>
 
         <div class="crew-info" id="crew-info">
           <h2 id="crew-title" class="Heading4">Commander</h2>
@@ -45,10 +47,10 @@
 
         </div>
         <div class="crew-nav-dots" aria-controls="crew-info">
-          <button id="1" type="button" aria-selected="true" onclick="changeToDouglas();"></button>
-          <button id="2" type="button" aria-selected="false" onclick="changeToMark();"></button>
-          <button id="3" type="button" aria-selected="false" onclick="changeToVictor();"></button>
-          <button id="4" type="button" aria-selected="false" onclick="changeToAnousheh();"></button>
+          <button id="1" type="button" aria-selected="true" onclick="changeCrewMember();"></button>
+          <button id="2" type="button" aria-selected="false" onclick="changeCrewMember();"></button>
+          <button id="3" type="button" aria-selected="false" onclick="changeCrewMember();"></button>
+          <button id="4" type="button" aria-selected="false" onclick="changeCrewMember();"></button>
         </div>
         <div class="sr-only"></div>
       </main>

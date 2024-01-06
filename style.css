@@ -122,12 +122,17 @@ nav {
         border-bottom: 3px solid hsl(var(--white)/ 0.0);
         transition: border-bottom 0.2s ease-in-out;
 
-        &:hover::after {
+        &[aria-selected="false"]::after {
             content: "";
             width: 100%;
             position: relative;
             transform: translate(0, calc(var(--_top-bottom-padding) + 3px));
             display: block;
+            border-bottom: 3px solid transparent;
+            transition: border-bottom 0.15s ease-out;
+        }
+
+        &[aria-selected="false"]:hover::after {
             border-bottom: 3px solid hsl(var(--white)/ 0.5);
         }
 
@@ -365,14 +370,19 @@ nav {
         text-transform: uppercase;
         --_top-bottom-padding: 0.5rem;
         padding-block: var(--_top-bottom-padding);
+        cursor: pointer;
         
-        
-        &[aria-selected="false"]:hover::after {
+        &[aria-selected="false"]::after {
             content: "";
             width: 100%;
             position: relative;
             transform: translate(0, calc(var(--_top-bottom-padding) + 3px));
             display: block;
+            border-bottom: 3px solid transparent; 
+            transition: border-bottom 0.15s ease-out; 
+        }
+        
+        &[aria-selected="false"]:hover::after {
             border-bottom: 3px solid hsl(var(--white)/ 0.5);
         }
 
@@ -480,10 +490,12 @@ nav {
 .crew-image {
     align-self: end;
     grid-area: image;
-    display: flex;
+    place-items: center;
+    display: inline-flex;
     justify-content: center;
-    align-items: center;
-
+    align-items: end;
+    
+    
     & img {
         max-width: min(100%, 60vw);
     }
@@ -527,6 +539,11 @@ nav {
         border-radius: 50%;
         margin: 0.5rem;
         cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: hsl(var(--white)/ 0.5);
+        }
 
         &[aria-selected="true"] {
             background-color: hsl(var(--white));
@@ -534,9 +551,29 @@ nav {
 
     }
 
+
+
     @media (min-width: 61em) {
         justify-self: start;
         text-align: start;
+    }
+}
+
+/****** Technology Page CSS ******/
+.technology-body {
+    background-image: url(Technology/images/background-technology-desktop.jpg);
+    background-color: var(--blackish-blue);
+
+    & .grid-standard {
+        --flow-space: 1rem;
+    }
+
+    @media (max-width: 35em) {
+        background-image: url(Technology/images/background-technology-mobile.jpg);
+    }
+
+    @media (min-width: 35em) and (max-width: 61em) {
+        background-image: url(Technology/images/background-technology-tablet.jpg);
     }
 }
 
@@ -688,5 +725,40 @@ nav {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/****** Animations ******/
+
+.fade-out {
+    animation: fadeOut 0.2s ease-out;
+}
+
+.pop-in {
+    animation: popIn 0.2s ease-in forwards;
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-2rem);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }

@@ -7,27 +7,31 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body class="technology-body">
     <header>
         <img src="../Resources/logo.svg" alt="Navbar Logo" width="48" height="48">
         <button type="button" class="mobile-nav-toggle" aria-controls="navbar" aria-expanded="false" onclick="toggleNav()"><span class="sr-only">Menu</span></button>
         <nav>
           <ul class="navbar NavText" id="navbar" data-visible="false">
-            <li class="">
+            <li aria-selected="false" class="">
               <a class="" href="../index.html"><span aria-hidden="true">00</span>Home</a>
             </li>
-            <li class="">
+            <li aria-selected="false" class="">
               <a class="" href="../Destination/destination.html"><span aria-hidden="true">01</span>Destination</a>
             </li>
-            <li class="">
+            <li aria-selected="false" class="">
               <a class="" href="../Crew/crew.html"><span aria-hidden="true">02</span>Crew</a>
             </li>
-            <li class="active">
+            <li aria-selected="true" class="active">
               <a class="" href="technology.html"><span aria-hidden="true">03</span>Technology</a>
             </li>
           </ul>
         </nav>
-      </header>../
+      </header>
+      <main class="grid-standard flow">
+
+        
+      </main>
     <script src="../navbar.js"></script>
 </body>
 </html>

@@ -7,50 +7,80 @@ const button2 = document.getElementById("2");
 const button3 = document.getElementById("3");
 const button4 = document.getElementById("4");
 
-function changeToDouglas() {
-    crewImage.src = "images/image-douglas-hurley.webp"
-    crewTitle.innerHTML = "Commander";
-    crewName.innerHTML = "Douglas Hurley";
-    crewBio.textContent = "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2."
+let crewData = {};
 
-    button1.setAttribute("aria-selected", "true");
-    button2.setAttribute("aria-selected", "false");
-    button3.setAttribute("aria-selected", "false");
-    button4.setAttribute("aria-selected", "false");
+fetch('crew.json')
+    .then(response => response.json())
+    .then(data => {
+        crewData = data;
+        initilizeButtons();
+    })
+    .catch(error => console.error('Error:', error));
+
+function initilizeButtons() {
+    crewData.crew.forEach((member, index) => {
+        document.getElementById(index + 1).onclick = function () {
+            changeCrewMember(
+                member.images,
+                member.role,
+                member.name,
+                member.bio,
+                index + 1
+            );
+        };
+    });
 }
 
-function changeToMark() {
-    crewImage.src = "images/image-mark-shuttleworth.webp"
-    crewTitle.innerHTML = "Mission Specialist";
-    crewName.innerHTML = "Mark Shuttleworth";
-    crewBio.textContent = "Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist."
+/**
+ * Change the crew member being displayed on the page.
+ * 
+ * @param {Object} images - The images of the crew member.
+ * @param {string} role - The role of the crew member.
+ * @param {string} name - The name of the crew member.
+ * @param {string} bio - The biography of the crew member.
+ * @param {string} selectedButtonId - The id of the selected button.
+ */
+function changeCrewMember(images, role, name, bio, selectedButtonId) {
+    // Deselect all buttons
+    button1.setAttribute("aria-selected", false);
+    button2.setAttribute("aria-selected", false);
+    button3.setAttribute("aria-selected", false);
+    button4.setAttribute("aria-selected", false);
+    
+    // Select the button associated with the selected crew member
+    document.getElementById(selectedButtonId).setAttribute("aria-selected", true);
 
-    button1.setAttribute("aria-selected", "false");
-    button2.setAttribute("aria-selected", "true");
-    button3.setAttribute("aria-selected", "false");
-    button4.setAttribute("aria-selected", "false");
-}
+    // Apply the fade-out animation to the crew member elements
+    crewImage.classList.add('fade-out');
+    crewTitle.classList.add('fade-out');
+    crewName.classList.add('fade-out');
+    crewBio.classList.add('fade-out');
 
-function changeToVictor() {
-    crewImage.src = "images/image-victor-glover.webp"
-    crewTitle.innerHTML = "Pilot";
-    crewName.innerHTML = "Victor Glover";
-    crewBio.textContent = "Pilot on the first operational flight of the SpaceX Crew Dragon to the    International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18. He was a crew member of Expedition 64, and served as a station systems flight engineer."
+    // Update the crew member details after the fade-out animation has finished
+    onanimationend = (event) => {
+        crewImage.srcset = images.webp;
+        crewImage.src = images.png;
+        crewImage.alt = images.alt;
+        crewTitle.innerText = role;
+        crewName.innerText = name;
+        crewBio.innerText = bio;
 
-    button1.setAttribute("aria-selected", "false");
-    button2.setAttribute("aria-selected", "false");
-    button3.setAttribute("aria-selected", "true");
-    button4.setAttribute("aria-selected", "false");
-}
+        // Apply the pop-in animation to the crew member elements
+        crewImage.classList.remove('fade-out');
+        crewImage.classList.add('pop-in');
+        crewTitle.classList.remove('fade-out');
+        crewTitle.classList.add('pop-in');
+        crewName.classList.remove('fade-out');
+        crewName.classList.add('pop-in');
+        crewBio.classList.remove('fade-out');
+        crewBio.classList.add('pop-in');
+    };
 
-function changeToAnousheh() {
-    crewImage.src = "images/image-anousheh-ansari.webp"
-    crewTitle.innerHTML = "Engineer";
-    crewName.innerHTML = "Anousheh Ansari";
-    crewBio.textContent = "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space."
-
-    button1.setAttribute("aria-selected", "false");
-    button2.setAttribute("aria-selected", "false");
-    button3.setAttribute("aria-selected", "false");
-    button4.setAttribute("aria-selected", "true");
+    // After the pop-in animation has finished, remove the pop-in class
+    setTimeout(() => {
+        crewImage.classList.remove('pop-in');
+        crewTitle.classList.remove('pop-in');
+        crewName.classList.remove('pop-in');
+        crewBio.classList.remove('pop-in');
+    }, 400); 
 }
