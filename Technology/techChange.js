@@ -47,6 +47,7 @@ function changeTechInfo(name, images, description, selectedButtonId) {
     // Update the technology details after the fade-out animation has finished
     onanimationend = (event) => {
         imgLand.src = images.landscape;
+        imgLand.srcset = images.landscape;
         imgPort.src = images.portrait;
         imgPort.alt = images.alt;
         techTitle.innerText = name;

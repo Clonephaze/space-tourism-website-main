@@ -510,11 +510,11 @@ nav {
 
     >h2 {
         color: hsl(var(--white)/ 0.5);
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     >h3 {
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     @media (max-width: 35em) {
@@ -701,6 +701,7 @@ nav {
 
     & h2, h3 {
         text-transform: uppercase;
+        padding-block: 0.5rem;
     }
 
     & h2 {
