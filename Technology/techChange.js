@@ -54,12 +54,9 @@ function changeTechInfo(name, images, description, selectedButtonId) {
         techArticle.innerText = description;
 
         // Apply the pop-in animation to the technology elements
-        imgCont.classList.remove('fade-out');
-        imgCont.classList.add('pop-in');
-        techTitle.classList.remove('fade-out');
-        techTitle.classList.add('pop-in');
-        techArticle.classList.remove('fade-out');
-        techArticle.classList.add('pop-in');
+        imgCont.classList.replace('fade-out', 'pop-in');
+        techTitle.classList.replace('fade-out', 'pop-in');
+        techArticle.classList.replace('fade-out', 'pop-in');
     };
 
     setTimeout(() => {

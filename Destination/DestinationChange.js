@@ -61,16 +61,11 @@ function changeDestinationlocation(images, name, description, distance, travel, 
         destinationTime.innerText = travel;
 
         // Apply the pop-in animation to the destination elements
-        destinationImg.classList.remove('fade-out');
-        destinationImg.classList.add('pop-in');
-        destinationTitle.classList.remove('fade-out');
-        destinationTitle.classList.add('pop-in');
-        destinationBio.classList.remove('fade-out');
-        destinationBio.classList.add('pop-in');
-        destinationDistance.classList.remove('fade-out');
-        destinationDistance.classList.add('pop-in');
-        destinationTime.classList.remove('fade-out');
-        destinationTime.classList.add('pop-in');
+        destinationImg.classList.replace('fade-out', 'pop-in');
+        destinationTitle.classList.replace('fade-out', 'pop-in');
+        destinationBio.classList.replace('fade-out', 'pop-in');
+        destinationDistance.classList.replace('fade-out', 'pop-in');
+        destinationTime.classList.replace('fade-out', 'pop-in');
     };
 
     setTimeout(() => {

@@ -66,14 +66,10 @@ function changeCrewMember(images, role, name, bio, selectedButtonId) {
         crewBio.innerText = bio;
 
         // Apply the pop-in animation to the crew member elements
-        crewImage.classList.remove('fade-out');
-        crewImage.classList.add('pop-in');
-        crewTitle.classList.remove('fade-out');
-        crewTitle.classList.add('pop-in');
-        crewName.classList.remove('fade-out');
-        crewName.classList.add('pop-in');
-        crewBio.classList.remove('fade-out');
-        crewBio.classList.add('pop-in');
+        crewImage.classList.replace('fade-out', 'pop-in');
+        crewTitle.classList.replace('fade-out', 'pop-in');
+        crewName.classList.replace('fade-out', 'pop-in');
+        crewBio.classList.replace('fade-out', 'pop-in');
     };
 
     // After the pop-in animation has finished, remove the pop-in class
