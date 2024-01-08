@@ -959,7 +959,7 @@ nav {
 }
 
 .roll-in-left {
-    animation: roll-in-left 1.2s ease-out alternate;
+    animation: roll-in-left 1.2s cubic-bezier(.6,1.25,.6,1.05) alternate;
 }
 
 .slide-in-right {
@@ -1037,7 +1037,7 @@ nav {
 
 @keyframes roll-in-left {
     0% {
-        transform: translateX(-800px) rotate(-540deg);
+        transform: translateX(-800px) rotate(-290deg);
         opacity: 0;
     }
 
