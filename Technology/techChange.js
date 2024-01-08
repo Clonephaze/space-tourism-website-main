@@ -7,6 +7,13 @@ const button1 = document.getElementById("1");
 const button2 = document.getElementById("2");
 const button3 = document.getElementById("3");
 
+function preloadImages(urls) {
+    urls.forEach(url => {
+        let img = new Image();
+        img.src = url;
+    });
+}
+
 let techData = {};
 
 fetch('technology.json')
@@ -14,6 +21,14 @@ fetch('technology.json')
     .then(data => {
         techData = data;
         initilizeButtons();
+        // Extract all image URLs from the data
+        let urls = techData.technology.map(tech => tech.images.landscape && tech.images.portrait);
+        // Filter out null values (in case some technologies don't have an image)
+        urls = urls.filter(Boolean);
+        // Flatten the array
+        urls = urls.flat();
+        // Preload the images
+        preloadImages(urls);
     })
     .catch(error => console.error('Error:', error));
 

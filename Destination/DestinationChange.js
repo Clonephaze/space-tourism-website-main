@@ -8,6 +8,13 @@ const button2 = document.getElementById("2");
 const button3 = document.getElementById("3");
 const button4 = document.getElementById("4");
 
+function preloadImages(urls) {
+    urls.forEach(url => {
+        let img = new Image();
+        img.src = url;
+    });
+}
+
 let destinationData = {};
 
 fetch('destination.json')
@@ -15,6 +22,14 @@ fetch('destination.json')
     .then(data => {
         destinationData = data;
         initilizeButtons();
+        // Extract all image URLs from the data
+        let urls = destinationData.destinations.map(destination => destination.images.png && destination.images.web);
+        // Filter out null values (in case some destinations don't have an image)
+        urls = urls.filter(Boolean);
+        // Flatten the array
+        urls = urls.flat();
+        // Preload the images
+        preloadImages(urls);
     })
     .catch(error => console.error('Error:', error));
 
