@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](/SpaceChallengeComplete.webm)
+![](/SpaceChallengeComplete.webp)
 
 ### Links
 
