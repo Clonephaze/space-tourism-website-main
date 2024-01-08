@@ -120,7 +120,6 @@ nav {
         list-style: none;
         text-transform: uppercase;
         height: 100%;
-        border-bottom: 3px solid transparent;
         transition: border-bottom 0.2s ease-in-out;
 
         &[aria-selected="false"]::after {
