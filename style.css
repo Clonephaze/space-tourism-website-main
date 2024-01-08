@@ -951,7 +951,7 @@ nav {
 }
 
 .pop-in {
-    animation: popIn 0.2s ease-in forwards;
+    animation: popIn 0.3s cubic-bezier(.86,.88,.39,.93) forwards;
 }
 
 .slide-in-left {
