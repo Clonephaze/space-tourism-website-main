@@ -15,6 +15,7 @@
 }
 
 body {
+    overflow-x: hidden;
     min-height: 100svh;
     display: grid;
     grid-template-rows: min-content 1fr;
@@ -86,6 +87,7 @@ header {
             margin-right: -2rem;
             order: 1;
             z-index: 1001;
+            animation: slide-in-left 0.9s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
         }
     }
 
@@ -259,6 +261,12 @@ nav {
         background-image: url(Resources/homeImages/background-home-mobile.jpg);
 
     }
+
+    @media (min-width: 35em) {
+        & .navbar {
+            animation: slide-in-right 0.9s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+        }
+    }
 }
 
 .home-btn {
@@ -302,8 +310,8 @@ nav {
     & .grid-standard {
         margin-top: 2rem;
         --flow-space: 2rem;
-        
-        grid-template-areas: 
+
+        grid-template-areas:
             'title'
             'image'
             'tabs'
@@ -316,14 +324,15 @@ nav {
 
             @media (min-width: 61em) {
                 max-width: 100%;
-            }        
+            }
         }
     }
+
     @media (min-width: 61em) {
         & .grid-standard {
             margin-top: 0;
             justify-items: start;
-            grid-template-areas: 
+            grid-template-areas:
                 '. title title .'
                 '. image tabs .'
                 '. image content .';
@@ -338,10 +347,11 @@ nav {
         background-image: url(Destination/images/background-destination-tablet.jpg);
     }
 }
+
 .destination-heading {
     grid-area: title;
-    
-    
+
+
     & span {
         opacity: 0.25;
         font-weight: 700;
@@ -355,7 +365,7 @@ nav {
 
 .destination-tabs {
     grid-area: tabs;
-    
+
     display: flex;
     width: min(85%, 20rem);
     justify-content: space-between;
@@ -371,17 +381,22 @@ nav {
         --_top-bottom-padding: 0.5rem;
         padding-block: var(--_top-bottom-padding);
         cursor: pointer;
-        
+
+        &[disabled="true"][aria-selected="false"] {
+            cursor: wait;
+            opacity: 0.6;
+        }
+
         &[aria-selected="false"]::after {
             content: "";
             width: 100%;
             position: relative;
             transform: translate(0, calc(var(--_top-bottom-padding) + 3px));
             display: block;
-            border-bottom: 3px solid transparent; 
-            transition: border-bottom 0.15s ease-out; 
+            border-bottom: 3px solid transparent;
+            transition: border-bottom 0.15s ease-out;
         }
-        
+
         &[aria-selected="false"]:hover::after {
             border-bottom: 3px solid hsl(var(--white)/ 0.5);
         }
@@ -395,7 +410,7 @@ nav {
             border-bottom: 3px solid hsl(var(--white));
         }
     }
-    
+
 }
 
 .destination-content {
@@ -412,7 +427,7 @@ nav {
         padding-top: 2.5rem;
         margin-block: 2.5rem;
 
-        & h3{
+        & h3 {
             padding-bottom: 0.5rem;
         }
 
@@ -424,17 +439,17 @@ nav {
     }
 
     @media (min-width: 61em) {
-       text-align: left;
+        text-align: left;
 
-       & .destination-sub-content {
-           justify-content: start;
-       }
+        & .destination-sub-content {
+            justify-content: start;
+        }
     }
 
 }
 
 /****** Crew Page CSS ******/
-.crew-body{
+.crew-body {
     background-image: url(Crew/images/background-crew-desktop.jpg);
     background-color: var(--blackish-blue);
 
@@ -446,7 +461,7 @@ nav {
         background-image: url(Crew/images/background-crew-mobile.jpg);
 
         & .grid-standard {
-            grid-template-areas: 
+            grid-template-areas:
                 'title'
                 'image'
                 'nav-dots'
@@ -458,7 +473,7 @@ nav {
         background-image: url(Crew/images/background-crew-tablet.jpg);
 
         & .grid-standard {
-            grid-template-areas: 
+            grid-template-areas:
                 'title'
                 'content'
                 'nav-dots'
@@ -468,7 +483,7 @@ nav {
 
     @media (min-width: 61em) {
         & .grid-standard {
-            grid-template-areas: 
+            grid-template-areas:
                 '. title image .'
                 '. content image .'
                 '. nav-dots image .';
@@ -498,11 +513,12 @@ nav {
     display: inline-flex;
     justify-content: center;
     align-items: end;
-    
-    
+
+
     & img {
         max-width: min(100%, 60vw);
     }
+
     @media (max-width: 35em) {
         border-bottom: 1px solid hsla(var(--white)/ 0.1);
     }
@@ -528,7 +544,7 @@ nav {
     @media (max-width: 35em) {
         padding-bottom: 4rem;
     }
-    
+
     @media (min-width: 61em) {
         justify-self: start;
         text-align: start;
@@ -555,6 +571,25 @@ nav {
 
         &[aria-selected="true"] {
             background-color: hsl(var(--white));
+        }
+
+        &:nth-child(1) {
+            animation: bounce-in-fwd 1.1s both;
+        }
+
+        &:nth-child(2) {
+            animation: bounce-in-fwd 1.1s both;
+            animation-delay: 150ms;
+        }
+        
+        &:nth-child(3) {
+            animation: bounce-in-fwd 1.1s both;
+            animation-delay: 300ms;
+        }
+
+        &:nth-child(4) {
+            animation: bounce-in-fwd 1.1s both;
+            animation-delay: 450ms;
         }
 
     }
@@ -591,7 +626,7 @@ nav {
         background-image: url(Crew/images/background-crew-mobile.jpg);
 
         & .grid-standard {
-            grid-template-areas: 
+            grid-template-areas:
                 'title'
                 'image'
                 'tech-nav'
@@ -604,7 +639,7 @@ nav {
         background-image: url(Crew/images/background-crew-tablet.jpg);
 
         & .grid-standard {
-            grid-template-areas: 
+            grid-template-areas:
                 'title'
                 'image'
                 'tech-nav'
@@ -615,7 +650,7 @@ nav {
 
     @media (min-width: 61em) {
         & .grid-standard {
-            grid-template-areas: 
+            grid-template-areas:
                 '. title . . .'
                 '. tech-nav tech-title image image'
                 '. tech-nav content image image';
@@ -647,9 +682,9 @@ nav {
     display: inline-flex;
     justify-content: center;
     align-items: end;
-    
+
     & img {
-        object-fit: fill;   
+        object-fit: fill;
     }
 
     @media (min-width: 61em) {
@@ -687,11 +722,25 @@ nav {
         &[aria-selected="false"]:hover {
             border-color: hsl(var(--white));
         }
+
+        &:nth-child(1) {
+            animation: bounce-in-fwd 1.1s both;
+        }
+
+        &:nth-child(2) {
+            animation: bounce-in-fwd 1.1s both;
+            animation-delay: 150ms;
+        }
+        
+        &:nth-child(3) {
+            animation: bounce-in-fwd 1.1s both;
+            animation-delay: 300ms;
+        }
     }
 
     @media (min-width: 61em) {
         flex-direction: column;
-        justify-self: start;;
+        justify-self: start;
     }
 }
 
@@ -707,7 +756,8 @@ nav {
         text-align: start;
     }
 
-    & h2, h3 {
+    & h2,
+    h3 {
         text-transform: uppercase;
         padding-block: 0.5rem;
     }
@@ -720,6 +770,7 @@ nav {
 .tech-info {
     min-width: min(50ch, 20vw);
     grid-area: content;
+    max-width: 90vw;
 
     @media (min-width: 61em) {
         justify-self: start;
@@ -731,6 +782,7 @@ nav {
     }
 
 }
+
 /****** Utility Classes ******/
 .Heading1 {
     font-family: "Bellefair";
@@ -851,7 +903,7 @@ nav {
     display: flex;
 }
 
-.flow > *:where(:not(:first-child)) {
+.flow>*:where(:not(:first-child)) {
     margin-top: var(--flow-space, 1rem);
 }
 
@@ -892,6 +944,30 @@ nav {
     animation: popIn 0.2s ease-in forwards;
 }
 
+.slide-in-left {
+    animation: slide-in-left 0.9s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+.roll-in-left {
+    animation: roll-in-left 1.2s ease-out alternate;
+}
+
+.slide-in-right {
+    animation: slide-in-right 900ms cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+.slide-in-bottom {
+    animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-in-elliptic-left-fwd {
+    animation: slide-in-elliptic-left-fwd 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+}
+
+.bounce-in-fwd {
+    animation: bounce-in-fwd 1.1s both;
+}
+
 @keyframes popIn {
     0% {
         opacity: 0;
@@ -914,5 +990,119 @@ nav {
 
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+        transform-origin: 100% 50%;
+        filter: blur(40px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) scaleY(1) scaleX(1);
+        transform-origin: 50% 50%;
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+        transform-origin: 0% 50%;
+        filter: blur(40px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) scaleY(1) scaleX(1);
+        transform-origin: 50% 50%;
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+@keyframes roll-in-left {
+    0% {
+        transform: translateX(-800px) rotate(-540deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        transform: translateY(1000px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-elliptic-left-fwd {
+    0% {
+        transform: translateX(-800px) rotateY(30deg) scale(0);
+        transform-origin: -100% 50%;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) rotateY(0) scale(1);
+        transform-origin: 1800px 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes bounce-in-fwd {
+    0% {
+        transform: scale(0);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+
+    38% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+
+    55% {
+        transform: scale(0.7);
+        animation-timing-function: ease-in;
+    }
+
+    72% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+    }
+
+    81% {
+        transform: scale(0.84);
+        animation-timing-function: ease-in;
+    }
+
+    89% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+    }
+
+    95% {
+        transform: scale(0.95);
+        animation-timing-function: ease-in;
+    }
+
+    100% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
     }
 }

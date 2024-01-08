@@ -48,12 +48,17 @@ function initilizeButtons() {
     });
 }
 
+
 function changeDestinationlocation(images, name, description, distance, travel, selectedButtonId) {
     // Deselect all buttons
     button1.setAttribute("aria-selected", false);
+    button1.setAttribute("disabled", true);
     button2.setAttribute("aria-selected", false);
+    button2.setAttribute("disabled", true);
     button3.setAttribute("aria-selected", false);
+    button3.setAttribute("disabled", true);
     button4.setAttribute("aria-selected", false);
+    button4.setAttribute("disabled", true);
 
     // Select the button associated with the selected destination
     document.getElementById(selectedButtonId).setAttribute("aria-selected", true);
@@ -76,7 +81,7 @@ function changeDestinationlocation(images, name, description, distance, travel, 
         destinationTime.innerText = travel;
 
         // Apply the pop-in animation to the destination elements
-        destinationImg.classList.replace('fade-out', 'pop-in');
+        destinationImg.classList.replace('fade-out', 'roll-in-left');
         destinationTitle.classList.replace('fade-out', 'pop-in');
         destinationBio.classList.replace('fade-out', 'pop-in');
         destinationDistance.classList.replace('fade-out', 'pop-in');
@@ -84,10 +89,24 @@ function changeDestinationlocation(images, name, description, distance, travel, 
     };
 
     setTimeout(() => {
-        destinationImg.classList.remove('pop-in');
+        
         destinationTitle.classList.remove('pop-in');
         destinationBio.classList.remove('pop-in');
         destinationDistance.classList.remove('pop-in');
         destinationTime.classList.remove('pop-in');
     }, 400);
+
+    setTimeout(() => {
+        onanimationend = (event) => {
+            destinationImg.classList.remove('roll-in-left');
+
+            // re-enable the buttons
+            button1.removeAttribute("disabled");
+            button2.removeAttribute("disabled");
+            button3.removeAttribute("disabled");
+            button4.removeAttribute("disabled");
+        };
+    }, 1200)
+
+
 }

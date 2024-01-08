@@ -32,13 +32,13 @@
         <h1 class="destination-heading Heading5 cap"><span aria-hidden="true">01</span> Pick your destination
         </h1>
 
-        <img id="destination-img" src="images/image-moon.png" srcset="images/image-moon.webp" alt="A shadowed picture of the moon">
+        <img class="roll-in-left" id="destination-img" src="images/image-moon.png" srcset="images/image-moon.webp" alt="A shadowed picture of the moon">
 
         <div class="destination-tabs">
-          <button onclick="changeDestinationlocation();" id="1" type="button" aria-selected="true" class="NavText">Moon</button>
-          <button onclick="changeDestinationlocation();" id="2" type="button" aria-selected="false" class="NavText">Mars</button>
-          <button onclick="changeDestinationlocation();" id="3" type="button" aria-selected="false" class="NavText">Europa</button>
-          <button onclick="changeDestinationlocation();" id="4" type="button" aria-selected="false" class="NavText">Titan</button>
+          <button onclick="changeDestinationlocation();" id="1" type="button" aria-selected="true" class="NavText" disabled="false">Moon</button>
+          <button onclick="changeDestinationlocation();" id="2" type="button" aria-selected="false" class="NavText" disabled="true">Mars</button>
+          <button onclick="changeDestinationlocation();" id="3" type="button" aria-selected="false" class="NavText" disabled="true">Europa</button>
+          <button onclick="changeDestinationlocation();" id="4" type="button" aria-selected="false" class="NavText" disabled="true">Titan</button>
         </div>
         <div class="destination-content">
           <h2 id="destination-title" class="Heading2 cap">Moon</h2>
@@ -62,5 +62,18 @@
       </main>
     <script src="../navbar.js"></script>
     <script src="DestinationChange.js"></script>
+    <script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.roll-in-left').forEach(element => {
+        element.classList.remove('roll-in-left');
+      });
+      
+      document.querySelectorAll('button[disabled]').forEach(button => {
+        button.removeAttribute('disabled');
+      });
+    }, 1210); // 1.21 seconds
+  });
+</script>
 </body>
 </html>
