@@ -120,7 +120,7 @@ nav {
         list-style: none;
         text-transform: uppercase;
         height: 100%;
-        border-bottom: 3px solid hsl(var(--white)/ 0.0);
+        border-bottom: 3px solid transparent;
         transition: border-bottom 0.2s ease-in-out;
 
         &[aria-selected="false"]::after {
@@ -488,6 +488,8 @@ nav {
     }
 
     @media (min-width: 61em) {
+
+        overflow-y: hidden;
         & .grid-standard {
             grid-template-areas:
                 '. title image .'
